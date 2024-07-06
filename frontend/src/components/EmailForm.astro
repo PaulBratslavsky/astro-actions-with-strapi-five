@@ -26,7 +26,7 @@
   import { actions } from "astro:actions";
   import { isInputError } from "astro:actions";
 
-  function clearPerviousMessage(id: string) {
+  function clearPreviousMessage(id: string) {
     const messageElement = document.getElementById(id);
     if (messageElement) {
       messageElement.remove();
@@ -48,24 +48,12 @@
     element.appendChild(p);
   }
 
-  const form = document.getElementById("email-form") as HTMLFormElement;
+  function clearInput(id: string) {
+    const emailInput = document.getElementById(id) as HTMLInputElement;
+    if (emailInput) emailInput.value = "";
+  }
 
-  async function handleFormSubmit(e: Event) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    function clearInput(id: string) {
-      const emailInput = document.getElementById(id) as HTMLInputElement;
-      if (emailInput) emailInput.value = "";
-    }
-
-    const { data, error } = await actions.email.safe(formData);
-
-    console.log(data, "what is this");
-
-    clearPerviousMessage("message");
-
+  function renderMessage(error: any, data: any, form: HTMLFormElement) {
     if (error && isInputError(error)) {
       const message = error.fields.email && error.fields.email[0];
       addMessageElement(message || "", "error", form);
@@ -79,6 +67,19 @@
         addMessageElement(message, "success", form);
       }
     }
+  }
+
+  const form = document.getElementById("email-form") as HTMLFormElement;
+
+  async function handleFormSubmit(e: Event) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const { data, error } = await actions.email.safe(formData);
+
+    clearPreviousMessage("message");
+    renderMessage(error, data, form);
   }
 
   form.addEventListener("submit", handleFormSubmit);

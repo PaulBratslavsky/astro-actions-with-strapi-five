@@ -20,15 +20,13 @@ export const server = {
       // insert comments in db
       console.log(formData);
 
-      const payload = {
+      const payload: Payload = {
         data: {
           email: formData.email,
         },
       };
 
       const responseData = await mutateData("POST", "/api/signups", payload);
-
-      console.log(responseData)
 
       if (!responseData) {
         return {
