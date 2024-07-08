@@ -4,4 +4,4 @@ Astro just recently released their Astro Actions, which is pretty awesome.  In t
 
 Here it is in action.
 
-
+![001-demo-astro-actions.gif](./images/001-demo-astro-actions.gif)
