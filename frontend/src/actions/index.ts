@@ -1,5 +1,5 @@
 import { defineAction, z } from "astro:actions";
-import { mutateData } from "../utils/mutate-date";
+import { mutateData } from "../utils/mutate-data";
 
 interface Payload {
   data: {
@@ -48,5 +48,7 @@ export const server = {
         strapiErrors: null,
       };
     },
+
+    
   }),
 };

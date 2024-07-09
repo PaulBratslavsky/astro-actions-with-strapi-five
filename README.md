@@ -1,16 +1,18 @@
-# Astro Actions With Vanilla JS and Strapi
+# Astro Actions With Vanilla JS and Strapi 5
 
-Astro just recently released their Astro Actions, which is pretty awesome. In this tutorial we will take a look on how to create an email capture form that will will showcase this feature.
+Astro just recently released their Astro Actions, which is pretty awesome.
+
+In this tutorial, we will look at creating an email capture form to showcase this feature.
 
 Here it is in action.
 
 ![001-demo-astro-actions.gif](./images/001-demo-astro-actions.gif)
 
-We will start by building out our Astro App and finally we will connected to Strapi 5, we will be using the release candidate.
+We will start by building out our Astro App, and finally, we will be connected to Strapi 5 and use the release candidate.
 
 ## So Why Are We Using Astro?
 
-Besides the fact that it is awesome.
+Besides the fact that it is fantastic.
 
 Astro is a fantastic web framework for creating content-rich websites like blogs, marketing sites, and online stores.
 
@@ -20,13 +22,13 @@ Astro's unique "Islands" architecture is designed specifically for content, ensu
 
 It supports popular tools like React, Vue, and Svelte, offering great flexibility for developers.
 
-Astro is super user-friendly, providing everything you need to build a website in one place, along with many integrations to customize your site.
+Astro is super user-friendly. It provides everything you need to build a website in one place, along with many integrations to customize it.
 
-Even if you're not a coding expert, Astro's HTML-based syntax is easy to learn and use.
+Astro's HTML-based syntax is easy to learn and use, even if you're not a coding expert.
 
 Astro makes it easy to create high-quality, fast-loading websites, making it a top choice for anyone looking to build an impressive online presence.
 
-And it is a great way to create site with just vanilla js/ts, html and css.
+It is a great way to create a site with just vanilla js/ts, HTML, and css.
 
 And that is what we are going to do in this tutorial.
 
@@ -34,22 +36,22 @@ Use Astro without any additional frameworks. That is right, we will write vanill
 
 ## Setting Up Our Astro Project
 
-You can find all the details [here](https://docs.astro.build/en/install-and-setup) but we are going to start with this simple command:
+You can find all the details [here](https://docs.astro.build/en/install-and-setup), but we are going to start with this simple command:
 
-note: but first create a folder where you will want to store this project on your local computer.
+Note: first, create a folder where you will want to store this project on your local computer.
 
 ```bash
   npm create astro@latest
 ```
 
-You will be asked couple of questions, starting where you would like to create your app. I will created in the root of my current folder and call it `frontend`.
+You will be asked where you would like to create your app. I will generate it in the root of my current folder and call it `frontend.`
 
 ```bash
  astro   Launch sequence initiated.
    dir   Where should we create your new project? ./frontend
 ```
 
-Then it will ask if you want to include sample files, this is the recommended option and it is the one we are going to choose.
+Then, it will ask if you want to include sample files. This is the recommended option, and we are going to choose it.
 
 ```bash
   tmpl   How would you like to start your new project?
@@ -86,19 +88,19 @@ Then choose `yes` for the remainder options.
 
 Nice, we now have our local project running.
 
-You can navigate to your `frontend` folder and type `yarn dev` or `npm run dev` to start your project. Navigate to `http://localhost:4321` and you should see the following.
+To start your project, navigate to your `frontend` folder and type `yarn dev` or `npm run dev.` Navigate to `http://localhost:4321`, and you should see the following.
 
 ![002-astro-app.png](./images/002-astro-app.png)
 
-Now, that we have astro running, let's do one more thing before diving into our tutorial, and that is, install **Tailwind** support. With Astro it is easy.
+Now that Astro is running let's do one more thing before diving into our tutorial: install Tailwind support. With Astro, it is easy.
 
-You can find the details [here](https://docs.astro.build/en/guides/integrations-guide/tailwind) but we are going to just use this handy command:
+You can find the details [here](https://docs.astro.build/en/guides/integrations-guide/tailwind), but we are going to use this handy command:
 
 ```bash
   npx astro add tailwind
 ```
 
-This will handle all of the magic automatically. You will see the following, just follow the prompts.
+This will handle all of the magic automatically. You will see the following; follow the prompts.
 
 ```bash
 ➜  frontend git:(main) ✗ npx astro add tailwind
@@ -137,15 +139,15 @@ This will handle all of the magic automatically. You will see the following, jus
   - @astrojs/tailwind
 ```
 
-Now that everything is all set, let's get started. If you are new to Astro, you can checkout the following [posts](https://strapi.io/blog/astro-and-strapi-website-tutorial-part-1-intro-to-astro) for learning the basics.
+Now that everything is all set, let's get started. If you are new to Astro, you can learn the basics by checking out the following [posts](https://strapi.io/blog/astro-and-strapi-website-tutorial-part-1-intro-to-astro).
 
-Nice, now that our app is ready, let's get started.
+Excellent; now that our app is ready, let's get started.
 
-## Create Submit Form In Astro
+## Create a Submit Form In Astro
 
-We will start by building out our submit form. We will keep it simple.
+We will start by building out our submission form. We will keep it simple.
 
-Inside your astro project, navigate to `src/pages/index.astro` file and replace all of the code with the following.
+Navigate to the `src/pages/index inside your Astro project. Astro's file and replace all of the code with the following.
 
 ```astro
 ---
@@ -203,7 +205,7 @@ import Layout from "../layouts/Layout.astro";
 
 ```
 
-Notice that we are importing our `Layout` component at the top, let's navigate into it, and replace the code with in the `<body>` tags with the following.
+Notice that we are importing our `Layout` component at the top; let's navigate into it and replace the code within the `<body>` tags with the following.
 
 ```astro
 <body class="flex min-h-screen bg-zinc-50 dark:bg-black">
@@ -215,15 +217,15 @@ Notice that we are importing our `Layout` component at the top, let's navigate i
 </body>
 ```
 
-And remove all the styles between the `<styles>` tags, we won't need them since we installed Tailwind.
+Remove all the styles between the `<styles>` tags; we won't need them since we installed Tailwind.
 
-Now run `yarn dev` and you should see the following.
+Now run `yarn dev,` and you should see the following.
 
 ![form-container.png](./images/003-form-container.png)
 
 Before we create our form component. Let's quickly revisit our `Layout` component.
 
-The big takeaway here is that we are using the `Layout` component as a wrapper that takes in children. In order to render the children, we need to user the <slot /> tag from Astro.
+The big takeaway is that we use the `Layout` component as a wrapper that takes in children. We need to use Astro's `<slot />` tag to render the children.
 
 You can learn more details [here](https://docs.astro.build/en/basics/astro-components/#slots)
 
@@ -278,19 +280,19 @@ Here is our example in our `index.astro` page.
 
 ## What are Astro JS Components?
 
-Astro components are modular, reusable pieces of code that can represent parts of a user interface, like headers, footers, cards, etc.
+Astro components are modular, reusable pieces of code representing user interface parts, like headers, footers, cards, etc.
 
 Similar to frameworks like React or Vue, Astro uses a component-based architecture, allowing developers to break down the UI into manageable, reusable parts.
 
-Astro components can be written using various front-end frameworks, such as React, Vue, Svelte, or even plain HTML and JavaScript, which is what we are going to do in this tutorial.
+Astro components can be written using various frontend frameworks, such as React, Vue, Svelte, or plain HTML and JavaScript, which we will do in this tutorial.
 
-This flexibility allows developers to choose the best tool for their needs or even mix and match frameworks within the same project.
+This flexibility allows developers to choose the best tool for their needs or mix and match frameworks within the same project.
 
 Astro uses an "islands architecture," where only interactive components (islands) are hydrated and made interactive on the client side. This approach minimizes JavaScript sent to the browser, improving performance.
 
-Lets's build our form component.
+Let's build our form component.
 
-Navigate to your `component` folder and create a file called `EmailSignUp.astro`.
+Navigate to your `component` folder and create a file called `EmailSignUp.astro.`
 
 And add the following code.
 
@@ -316,7 +318,7 @@ And add the following code.
 </form>
 ```
 
-This is where all of our magic will happen. But first navigate to your `index.astro` file and let's import the component and add it to our code.
+This is where all of our magic will happen. But first, navigate to your `index. Astro` file, and let's import the component and add it to our code.
 
 ```astro
   import EmailSignUp from "../layouts/EmailSignUp.astro";
@@ -392,17 +394,17 @@ If you restart your app, you will see the following.
 
 ![004-form-component.png](./images/004-form-component.png)
 
-But clicking the button won't do anything. But that is ok. We will fix this in the next section with vanilla javascript. What??!!? Vanilla javascript. Who does that?
+But clicking the button won't do anything. That is okay. We will fix this in the next section using vanilla Javascript. What?!! Vanilla Javascript. Who does that?
 
-Yes, let's see if we still remember how to do it? Sometimes using a framework is an overkill, especially if you have a static site, and you just need one form to capture email.
+Yes, let's see if we still remember how to do it. Sometimes, using a framework is overkill, especially if you have a static site and need one form to capture email.
 
-Of course I am joking, we can use React here if we like, but that is the beauty of Astro, it gives us the option to choose.
+Of course, I am joking. We can use React here if we like, but that is the beauty of Astro: It gives us the option to choose.
 
 ## Making Vanilla Javascript Cool Again
 
-What's awesome about Astro, we can add Javascript directly via the `<script>` tag, you can either write all of the code there, or in a separate file, and then import it within the script tag.
+What's incredible about Astro is that we can add Javascript directly via the `<script>` tag; you can either write all of the code there or in a separate file and then import it within the script tag.
 
-Inside of our `EmailSignUp.astro` after our HTML code, add the following.
+Add the following to our `EmailSignUp.astro` after our HTML code.
 
 ```ts
 <script>
@@ -469,9 +471,9 @@ Inside of our `EmailSignUp.astro` after our HTML code, add the following.
 </script>
 ```
 
-Look at the beautiful vanilla javascript, if it has been a while, it is ok. This is one of the reasons why I started to use Astro, so I can have the opportunity to write some vanilla javascript. And if I need more, I can always bring in a React component.
+Look at the beautiful vanilla Javascript. If it has been a while, that's okay. This is one of the reasons I started using Astro: so I can have the opportunity to write some vanilla Javascript. And if I need more, I can always bring in a React component.
 
-Let's breakdown each part of the code above.
+Let's break down each part of the code above.
 
 ### Imports:
 
@@ -592,9 +594,9 @@ Before we can test our form, we need to create an Astro Action.
 
 ## Implementing Astro Actions In Astro
 
-Now finally let's take a look how to use Astro actions. This is an experimental feature, so we first must enable it. If you would like to learn more about Astro actions, check out the following [post](https://astro.build/blog/astro-480/#experimental-astro-actions).
+Finally, let's examine how to use astro actions. This is an experimental feature, so we must first enable it. To learn more about Astro's actions, check out the following [post](https://astro.build/blog/astro-480/#experimental-astro-actions).
 
-Our first step, is to update our `astro.config.mjs` file with the following.
+Our first step is to update our `Astro.config.mjs` file with the following.
 
 ```mjs
 import { defineConfig } from "astro/config";
@@ -611,7 +613,7 @@ export default defineConfig({
 });
 ```
 
-Now let's create a new folder in the `src` directory called `actions` and add `index.ts` file, and paste in the following code.
+Now, let's create a new folder in the `src` directory called `actions,` add the `index.ts` file, and paste it into the following code.
 
 ```ts
 import { defineAction, z } from "astro:actions";
@@ -633,13 +635,281 @@ export const server = {
 };
 ```
 
-Here we define a simple Astro action, what is awesome we can do validation via zod.
+Here, we define a simple Astro action; what is fantastic is that we can do validation via zod.
 
-If we were to submit our form with our any email, our action will return the zod validation error.  Which is pretty awesome.
+If we were to submit our form with any email, our action would return the zod validation error. Which is awesome.
 
-But if we provide valid email, you can see that we can console log our email in the action.
+But if we provide a valid email, you can see that we can console log our email.
 
 ![action-zod-errors.gif](./images/005-action-zod-errors.gif)
 
-Nice, we are now getting our email, in the next step, let's set up Strapi 5 and connect everything together.
+Nice. We are now getting our email. Next, let's set up Strapi 5 and connect everything.
 
+## Getting Started With Strapi 5
+
+Did you know we recently released the Strapi 5 "release candidate"? This is your chance to take it for a spin and help us improve with your feedback.
+
+You can check out the new docs [here](https://docs-next.strapi.io/dev-docs/whats-new).
+
+Let's start with the following command. We will use the `--quickstart` flag to get us started with the SQLite database.
+
+```bash
+  npx create-strapi@rc backend --quickstart
+```
+
+```bash
+Create a free account on Strapi Cloud and benefit from:
+
+- ✦ Blazing-fast ✦ deployment for your projects
+- ✦ Exclusive ✦ access to resources to make your project successful
+- An ✦ Awesome ✦ community and full enjoyment of Strapi's ecosystem
+
+Start your 14-day free trial now!
+
+
+? Please log in or sign up.
+  Login/Sign up
+❯ Skip
+```
+
+When creating your project, you will be prompted to sign in to Strapi Cloud; we will skip this option for now.
+
+But whenever you want to deploy your project quickly, Strapi Cloud is the way to go. You can learn more [here](https://strapi.io/cloud)
+
+Once all the dependencies are installed, your app will start, and you will see the following screen.
+
+![006-auth-screen](./images/006-auth-screen.png)
+
+Once you log in, you will be greeted by the dashboard.
+
+![007-dashboard](./images/007-dashboard.png)
+
+Let's now create our first collection type to store the emails that will be captured by our form.
+
+Navigate to the `Content-Type Builder` and click `Create new collection type`.
+
+![008-create-collection](./images/008-create-collection.png)
+
+Now, let's fill out the following fields.
+
+**Display Name:** Email Signup
+
+Then click on continue.
+
+![009-create-collection](./images/009-create-collection.png)
+
+We will add one text field called `email` and make it unique.
+
+![010-create-collection.gif](./images/010-create-collection.gif)
+
+Finally, we must enable the endpoint to allow us to create entries. We can do this by navigating to `Settings => Users Permission => Roles => Public,` selecting our collection type `Email Signup`, and checking the create check box.
+
+Please save your changes. Now that this is done, we can post a request to the following URL path: `https://localhost:1337/api/email-signups`.
+
+![011-permissions.png](./images/011-permissions.png)
+
+Nice; finally, we have to finish up the code in our Astro project to make the request to Strapi and pass the email contact form data.
+
+## Making A POST Request To Strapi via Astro Action
+
+In our Astro project, navigate to our `actions` folder and examine the `index.ts` file.
+
+At the top, let's define a function that will call Strapi API using the following code
+
+```ts
+export async function mutateData(method: string, path: string, payload?: any) {
+  const baseUrl = import.meta.env.PUBLIC_STRAPI_URL || "http://localhost:1337";
+  const url = new URL(path, baseUrl);
+
+  const authToken = false;
+
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+
+  if (authToken) {
+    headers["Authorization"] = `Bearer ${authToken}`;
+  }
+
+  try {
+    const response = await fetch(url.href, {
+      method: method,
+      headers,
+      body: JSON.stringify({ ...payload }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    throw error;
+  }
+}
+```
+
+The above function is a general function that I use in many projects to make requests.
+
+We are not using auth, so I hardcoded it to false. Still, you can extend the functionality to add authenticated requests via JWT token.
+
+Now that we have our function, we can use it in our action to make a **POST** request to our Strapi endpoint.
+
+Inside our handler function, let's make the following change.
+
+```ts
+
+ handler: async (formData) => {
+      // insert comments in db
+      console.log(formData);
+
+      const payload: Payload = {
+        data: {
+          email: formData.email,
+        },
+      };
+
+      const responseData = await mutateData("POST", "/api/email-signups", payload);
+
+      if (!responseData) {
+        return {
+          strapiErrors: null,
+          message: "Ops! Something went wrong. Please try again.",
+        };
+      }
+
+      if (responseData.error) {
+        return {
+          strapiErrors: responseData.error,
+          message: "Failed to Register.",
+        };
+      }
+
+      return {
+        message: "Form submitted, thank you.",
+        data: responseData,
+        strapiErrors: null,
+      };
+    },
+
+```
+
+After we call the `mutateData` function, we check to see if the request fails and for Strapi-specific API errors.
+
+For instance, we set the email field as unique. That means when the user tries to add their email more than once in the contact form, we will return a Strapi error saying that the email has to be unique.
+
+We will see this in action in just a moment.
+
+The completed code should look like the following.
+
+
+```ts
+import { defineAction, z } from "astro:actions";
+
+export async function mutateData(method: string, path: string, payload?: any) {
+  const baseUrl = import.meta.env.PUBLIC_STRAPI_URL || "http://localhost:1337";
+  const url = new URL(path, baseUrl);
+
+  const authToken = false;
+
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+
+  if (authToken) {
+    headers["Authorization"] = `Bearer ${authToken}`;
+  }
+
+  try {
+    const response = await fetch(url.href, {
+      method: method,
+      headers,
+      body: JSON.stringify({ ...payload }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("error", error);
+    throw error;
+  }
+}
+
+interface Payload {
+  data: {
+    email: string;
+  };
+}
+
+export const server = {
+  email: defineAction({
+    accept: "form",
+    input: z.object({
+      email: z
+        .string({ message: "This field has to be filled." })
+        .email("This is not a valid email."),
+    }),
+
+    handler: async (formData) => {
+      // insert comments in db
+      console.log(formData);
+
+      const payload: Payload = {
+        data: {
+          email: formData.email,
+        },
+      };
+
+      const responseData = await mutateData(
+        "POST",
+        "api/email-signups",
+        payload
+      );
+
+      if (!responseData) {
+        return {
+          strapiErrors: null,
+          message: "Ops! Something went wrong. Please try again.",
+        };
+      }
+
+      if (responseData.error) {
+        return {
+          strapiErrors: responseData.error,
+          message: "Failed to Register.",
+        };
+      }
+
+      return {
+        message: "Form submitted, thank you.",
+        data: responseData,
+        strapiErrors: null,
+      };
+    },
+  }),
+};
+```
+
+Make sure that your Strapi and Astro apps are running, and let's test out our form.
+
+![012-final-demo.gif](./images/012-final-demo.gif)
+
+Nice, everything is working as expected. We can submit our contact form, but we see an error if we try to submit the form with an already submitted email.
+
+## Conclusion
+
+In this tutorial, we've integrated Astro Actions with a vanilla JavaScript email capture form, seamlessly connecting it to Strapi 5. 
+
+Following these steps, you should understand how to set up an Astro project, implement and use Astro Actions, and integrate them with Strapi for backend functionality.
+
+Astro's flexibility allows you to write clean, performant code without relying heavily on frameworks, making it a great choice for content-rich websites. 
+
+Using Astro's "Islands" architecture and integrating with tools like Strapi, you can create fast, SEO-friendly sites with dynamic content capabilities. 
+
+We hope this guide has been helpful and that you feel empowered to create more advanced and interactive web applications using Astro and Strapi. Happy coding!
+
+You can find the project repo [here](https://github.com/PaulBratslavsky/astro-actions-blog-example).
+
+If you have additional Strapi questions. Come hang out with us for Strapi Open Office hours.
+
+**Morning Session:**
+Join us at 4 AM CST (9:00 AM GMT) for our new early bird session. Perfect for our global community members!
+
+**Afternoon Session:**
+Remember our regular session at 12:30 PM CST (6:30 PM GMT). It's an excellent time for an afternoon break and chat!
